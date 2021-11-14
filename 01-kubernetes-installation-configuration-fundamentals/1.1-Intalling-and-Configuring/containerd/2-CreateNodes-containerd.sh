@@ -135,9 +135,12 @@ ssh aen@c1-node1
 
 #PASTE_JOIN_COMMAND_HERE be sure to add sudo
 sudo kubeadm join 172.16.94.10:6443 \
-  --token xguxr9.zungfo8srvsxwk3h     \
-  --discovery-token-ca-cert-hash sha256:0735b1db947bcdc68e01feb38d9f1e16a02d26251c95908576ea2be31cd14946 
+  --token hirro1.7asf3h1rzax11800     \
+  --discovery-token-ca-cert-hash sha256:1bcf08d4364bd2928986388ca5b56155d61769bf6f66b652caea46f74a9a9219
 
+
+
+\
 
 #Log out of c1-node1 and back on to c1-cp1
 exit
