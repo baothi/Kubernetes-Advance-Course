@@ -117,7 +117,7 @@ VERSION=1.21.3-00
 sudo apt-get install -y kubelet=$VERSION kubeadm=$VERSION kubectl=$VERSION
 sudo apt-mark hold kubelet kubeadm kubectl containerd
 
-#There is a breaking change in kubernetes 1.22, I will update the course shortly for that change for now use versions less than 1.22
+#There is a breaking change in kubernetes 1.22,I will update the course shortly for that change for now use versions less than 1.22
 #To install the latest, omit the version parameters
 #sudo apt-get install kubelet kubeadm kubectl
 #sudo apt-mark hold kubelet kubeadm kubectl containerd
