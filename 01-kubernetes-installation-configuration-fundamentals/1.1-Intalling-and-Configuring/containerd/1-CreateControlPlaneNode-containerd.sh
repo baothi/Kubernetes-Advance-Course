@@ -53,6 +53,11 @@ EOF
 #We're using 1.21.0...if you're using a newer version update that here.
 vi ClusterConfiguration.yaml
 
+networking:      ===> find
+  dnsDomain: cluster.local
+  serviceSubnet: 10.96.0.0/12
+  podSubnet: "10.244.0.0/16"   =====> copy past
+
 
 #Need to add CRI socket since there's a check for docker in the kubeadm init process, 
 #if you don't you'll get this error...
@@ -61,7 +66,8 @@ sudo kubeadm init \
     --config=ClusterConfiguration.yaml \
     --cri-socket /run/containerd/containerd.sock
 
-
+kubeadm join 172.16.94.10:6443 --token abcdef.0123456789abcdef \
+        --discovery-token-ca-cert-hash sha256:c18028d5f410c867fed52101ce90b1a3c22c5211d4a98a8f0b04ee5831cf445a
 #Before moving on review the output of the cluster creation process including the kubeadm init phases, 
 #the admin.conf setup and the node join command
 

@@ -138,7 +138,8 @@ sudo kubeadm join 172.16.94.10:6443 \
   --token xguxr9.zungfo8srvsxwk3h     \
   --discovery-token-ca-cert-hash sha256:0735b1db947bcdc68e01feb38d9f1e16a02d26251c95908576ea2be31cd14946 
 
-
+kubeadm join 172.16.94.10:6443 --token abcdef.0123456789abcdef \
+        --discovery-token-ca-cert-hash sha256:c18028d5f410c867fed52101ce90b1a3c22c5211d4a98a8f0b04ee5831cf445a
 #Log out of c1-node1 and back on to c1-cp1
 exit
 
@@ -160,3 +161,6 @@ kubectl get nodes
 #Just SSH into c1-node2 and c1-node3 and run the commands again.
 ssh aen@c1-node2
 #You can skip the token re-creation if you have one that's still valid.
+sudo vim /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+   81  sudo systemctl daemon-reload
+   82  sudo systemctl restart kubelet.service
