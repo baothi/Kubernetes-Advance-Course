@@ -1,6 +1,6 @@
 #Demo requires nodes c1-cp1, c1-node1, c1-node2 and c1-node3
 ssh aen@c1-cp1
-cd ~/k8s-advance-course/02-managing-kubernetes-api-server-pods/2.2-Managing-Objects-with-Lable-Antonation-Namespaces/demos
+cd ~/Kubernetes-Advance-Course/02-managing-kubernetes-api-server-pods/2.2-Managing-Objects-with-Lable-Antonation-Namespaces/demos
 
 #Create a collection of pods with labels assinged to each
 more CreatePodsWithLabels.yaml
@@ -69,7 +69,7 @@ kubectl describe replicaset hello-world
 kubectl get pods --show-labels
 
 #Edit the label on one of the Pods in the ReplicaSet, change the pod-template-hash
-kubectl label pod PASTE_POD_NAME_HERE pod-template-hash=DEBUG --overwrite
+kubectl label pod hello-world-54575d5b77-9jh8h pod-template-hash=DEBUG --overwrite
 
 #The ReplicaSet will deploy a new Pod to satisfy the number of replicas. Our relabeled Pod still exists.
 kubectl get pods --show-labels
@@ -89,7 +89,7 @@ kubectl get pod -o wide
 #To remove a pod from load balancing, change the label used by the service's selector.
 #The ReplicaSet will respond by placing another pod in the ReplicaSet
 kubectl get pods --show-labels
-kubectl label pod PASTE_POD_NAME_HERE app=DEBUG --overwrite
+kubectl label pod hello-world-54575d5b77-9jh8h app=DEBUG --overwrite
 
 #Check out all the labels in our pods
 kubectl get pods --show-labels

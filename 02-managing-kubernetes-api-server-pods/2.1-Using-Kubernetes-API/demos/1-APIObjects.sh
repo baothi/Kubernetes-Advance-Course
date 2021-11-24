@@ -1,5 +1,5 @@
 ssh aen@c1-cp1
-cd ~/k8s-advance-course/02-managing-kubernetes-api-server-pods/2.1-Using-Kubernetes-API/demos
+cd ~/Kubernetes-Advance-Course/02-managing-kubernetes-api-server-pods/2.1-Using-Kubernetes-API/demos
 
 
 #API Discovery

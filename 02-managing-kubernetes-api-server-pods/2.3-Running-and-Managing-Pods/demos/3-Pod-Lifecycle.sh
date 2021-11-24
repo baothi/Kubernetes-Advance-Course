@@ -1,5 +1,5 @@
 ssh aen@c1-cp1
-cd ~/k8s-advance-course/02-managing-kubernetes-api-server-pods/2.3-Running-and-Managing-Pods/demos
+cd ~/Kubernetes-Advance-Course/02-managing-kubernetes-api-server-pods/2.3-Running-and-Managing-Pods/demos
 
 #Start up kubectl get events --watch and background it.
 kubectl get events --watch &

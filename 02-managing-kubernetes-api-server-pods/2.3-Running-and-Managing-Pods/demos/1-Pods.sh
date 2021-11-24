@@ -1,5 +1,5 @@
 ssh aen@c1-cp1
-cd ~/k8s-advance-course/02-managing-kubernetes-api-server-pods/2.3-Running-and-Managing-Pods/demos
+cd ~/Kubernetes-Advance-Course/02-managing-kubernetes-api-server-pods/2.3-Running-and-Managing-Pods/demos
 
 #Start up kubectl get events --watch and background it.
 kubectl get events --watch &
@@ -19,7 +19,7 @@ kubectl scale deployment hello-world --replicas=1
 kubectl get pods
 
 #Let's use exec a command inside our container, we can see the GET and POST API requests through the API server to reach the pod.
-kubectl -v 6 exec -it PASTE_POD_NAME_HERE -- /bin/sh
+kubectl -v 6 exec -it hello-world-54575d5b77-tp8xx -- /bin/sh
 ps
 exit
 
@@ -30,10 +30,10 @@ ps -aux | grep hello-app
 exit
 
 #Now, let's access our Pod's application directly, without a service and also off the Pod network.
-kubectl port-forward PASTE_POD_NAME_HERE 80:8080
+kubectl port-forward hello-world-54575d5b77-tp8xx 80:8080
 
 #Let's do it again, but this time with a non-priviledged port
-kubectl port-forward PASTE_POD_NAME_HERE 8080:8080 &
+kubectl port-forward hello-world-54575d5b77-tp8xx 8080:8080 &
 
 #We can point curl to localhost, and kubectl port-forward will send the traffic through the API server to the Pod
 curl http://localhost:8080
