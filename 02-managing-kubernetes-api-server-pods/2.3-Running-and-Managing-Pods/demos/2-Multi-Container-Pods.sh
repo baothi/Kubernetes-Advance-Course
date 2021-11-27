@@ -1,5 +1,5 @@
 ssh aen@c1-cp1
-cd ~/k8s-advance-course/02-managing-kubernetes-api-server-pods/2.3-Running-and-Managing-Pods/demos
+cd ~/Kubernetes-Advance-Course/02-managing-kubernetes-api-server-pods/2.3-Running-and-Managing-Pods/demos
 
 #Review the code for a multi-container pod, the volume webcontent is an emptyDir...essentially a temporary file system.
 #This is mounted in the containers at mountPath, in two different locations inside the container.

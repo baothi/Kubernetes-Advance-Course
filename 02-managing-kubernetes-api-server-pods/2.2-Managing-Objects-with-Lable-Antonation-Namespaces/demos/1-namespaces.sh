@@ -1,5 +1,5 @@
 ssh aen@c1-cp1
-cd ~/k8s-advance-course/02-managing-kubernetes-api-server-pods/2.2-Managing-Objects-with-Lable-Antonation-Namespaces/demos
+cd ~/Kubernetes-Advance-Course/02-managing-kubernetes-api-server-pods/2.2-Managing-Objects-with-Lable-Antonation-Namespaces/demos
 
 #Get a list of all the namespaces in our cluster
 kubectl get namespaces
