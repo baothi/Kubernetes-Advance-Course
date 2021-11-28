@@ -1,6 +1,6 @@
 #Log into the Control Plane Node to drive these demos.
 ssh aen@c1-cp1
-cd ~/content/course/04/demos
+cd ~/k8s-advance-course/04-configuring-managing-kubernetes-storage-scheduling/4.3-Managing-and-Controlling-the-Kubernetes-Scheduler
 
 
 
