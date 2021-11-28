@@ -74,3 +74,32 @@ This is Vagrantfile is used in this course.You don't need to change anything.
   # SHELL
 end
 ```
+#### Vagrantfile for c1-storage 
+
+```
+# -*- mode: ruby -*-
+ # vi: set ft=ruby :
+ Vagrant.configure("2") do |config|
+  config.vm.box = "btkien/ubuntu-1804-k8s-advance"
+  config.vm.box_version = "1.0.0"
+  config.ssh.username = 'aen'
+  config.vm.box_check_update = false
+
+  if Vagrant.has_plugin?("vagrant-vbguest")
+    config.vbguest.auto_update = false
+  end
+
+  config.vm.provider :virtualbox do |v|
+    v.memory = 2048
+    v.cpus = 1
+    v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    v.customize ["modifyvm", :id, "--ioapic", "on"]
+  end
+
+  config.vm.define "c1-storage" do |master|
+    master.vm.box_check_update = false
+    master.vm.hostname = "c1-storage"
+    master.vm.network :private_network, ip: "172.16.94.5"
+  end
+end
+```
