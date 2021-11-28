@@ -1,6 +1,6 @@
 #Log into the Control Plane Node to drive these demos.
 ssh aen@c1-cp1
-cd ~/content/course/03/demos
+cd ~/k8s-advance-course/04-configuring-managing-kubernetes-storage-scheduling/4.1-2-Configuring-and-Managing-Storage-in-Kubernetes
 
 
 #Demo 1 - Creating ConfigMaps

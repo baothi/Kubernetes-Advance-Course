@@ -1,6 +1,6 @@
 #Log into the Control Plane Node to drive these demos.
 ssh aen@c1-cp1
-cd ~/content/course/03/demos
+cd ~/k8s-advance-course/04-configuring-managing-kubernetes-storage-scheduling/4.1-2-Configuring-and-Managing-Storage-in-Kubernetes
 
 
 #Demo 1 - Pulling a Container from a Private Container Registry
@@ -21,14 +21,14 @@ sudo ctr images list
 #Tagging our image in the format your registry, image and tag
 #You'll be using your own repository, so update that information here. 
 #  source_ref: gcr.io/google-samples/hello-app:1.0    #this is the image pulled from gcr
-#  target_ref: docker.io/nocentino/hello-app:ps       #this is the image you want to push into your private repository
-sudo ctr images tag gcr.io/google-samples/hello-app:1.0 docker.io/nocentino/hello-app:ps
+#  target_ref: docker.io/kienbt/hello-app:ps       #this is the image you want to push into your private repository
+sudo ctr images tag gcr.io/google-samples/hello-app:1.0 docker.io/kienbt/hello-app:ps
 
 
 #Now push that locally tagged image into our private registry at docker hub
 #You'll be using your own repository, so update that information here and specify your $USERNAME
 #You will be prompted for the password to your repository
-sudo ctr images push docker.io/nocentino/hello-app:ps --user $USERNAME
+sudo ctr images push docker.io/kienbt/hello-app:ps --user $USERNAME
 
 
 #Create our secret that we'll use for our image pull...
@@ -59,5 +59,5 @@ kubectl describe pods hello-world
 #Clean up after our demo, remove the images from c1-cp1.
 kubectl delete -f deployment-private-registry.yaml
 kubectl delete secret private-reg-cred
-sudo ctr images remove docker.io/nocentino/hello-app:ps
+sudo ctr images remove docker.io/kienbt/hello-app:ps
 sudo ctr images remove gcr.io/google-samples/hello-app:1.0

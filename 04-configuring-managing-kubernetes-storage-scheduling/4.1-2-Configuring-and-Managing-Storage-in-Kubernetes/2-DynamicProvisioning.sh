@@ -1,5 +1,5 @@
 ssh aen@c1-cp1
-cd ~/content/course/02/demos/
+cd ~/k8s-advance-course/04-configuring-managing-kubernetes-storage-scheduling/4.1-2-Configuring-and-Managing-Storage-in-Kubernetes
 
 #Demo 0 - Azure Setup
 #If you don't have your Azure Kubernetes Service Cluster available follow the script in CreateAKSCluster.sh

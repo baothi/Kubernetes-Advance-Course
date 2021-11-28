@@ -1,6 +1,6 @@
 #Log into the Control Plane Node to drive these demos.
 ssh aen@c1-cp1
-cd ~/content/course/03/demos
+cd ~/k8s-advance-course/04-configuring-managing-kubernetes-storage-scheduling/4.1-2-Configuring-and-Managing-Storage-in-Kubernetes
 
 
 #Demo 1 - Pulling a Container from a Private Container Registry
@@ -24,12 +24,12 @@ sudo docker image ls gcr.io/google-samples/hello-app
 
 #tagging our image in the format your registry, image and tag
 #You'll be using your own repository, so update that information here. 
-sudo docker tag bc5c421ecd6c nocentino/hello-app:ps
+sudo docker tag bc5c421ecd6c kienbt/hello-app:ps
 
 
 #Now push that locally tagged image into our private registry at docker hub
 #You'll be using your own repository, so update that information here. 
-sudo docker push nocentino/hello-app:ps
+sudo docker push kienbt/hello-app:ps
 
 
 #We need to adjust permissions on our config.json file, since I did a sudo docker login earlier...
@@ -54,9 +54,9 @@ kubectl create secret docker-registry private-reg-cred \
 
 #Ensure the image doesn't exist on any of our nodes...or else we can get a false positive
 #you'll be using your own repository, so update that information here.
-ssh aen@c1-node1 'sudo docker rmi nocentino/hello-app:ps'
-ssh aen@c1-node2 'sudo docker rmi nocentino/hello-app:ps'
-ssh aen@c1-node3 'sudo docker rmi nocentino/hello-app:ps'
+ssh aen@c1-node1 'sudo docker rmi kienbt/hello-app:ps'
+ssh aen@c1-node2 'sudo docker rmi kienbt/hello-app:ps'
+ssh aen@c1-node3 'sudo docker rmi kienbt/hello-app:ps'
 
 
 #Create a deployment using imagePullSecret in the Pod Spec.
@@ -71,4 +71,4 @@ kubectl describe pods hello-world
 #clean up after our demo
 kubectl delete -f deployment-private-registry.yaml
 kubectl delete secret private-reg-cred
-sudo docker rmi nocentino/hello-app:ps
+sudo docker rmi kienbt/hello-app:ps
