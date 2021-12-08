@@ -29,7 +29,6 @@ kubectl scale deployment hello-world --replicas=6
 #c1-node3 won't get any new pods...one of the other Nodes will get an extra Pod here.
 kubectl get pods -o wide
 
-
 #Let's drain (remove) the Pods from c1-node3...
 kubectl drain c1-node3 
 

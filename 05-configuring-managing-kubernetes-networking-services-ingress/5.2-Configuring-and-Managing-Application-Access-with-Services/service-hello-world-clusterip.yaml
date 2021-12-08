@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world
+  name: hello-world-clusterip
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     matchLabels:
-      app: hello-world
+      app: hello-world-clusterip
   template:
     metadata:
       labels:
-        app: hello-world
+        app: hello-world-clusterip
     spec:
       containers:
       - name: hello-world
@@ -21,12 +21,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: hello-world
+  name: hello-world-clusterip
 spec:
+  type: ClusterIP
   selector:
-    app: hello-world
+    app: hello-world-clusterip
   ports:
-  - nodePort: 31258
-    port: 80
+  - port: 80
     protocol: TCP
     targetPort: 8080
