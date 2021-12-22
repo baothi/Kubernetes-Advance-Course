@@ -34,6 +34,7 @@ az aks create \
     --resource-group "Kubernetes-Cloud" \
     --generate-ssh-keys \
     --name CSCluster \
+    --kubernetes-version 1.21.2 \
     --node-count 3 #default Node count is 3
 
 
