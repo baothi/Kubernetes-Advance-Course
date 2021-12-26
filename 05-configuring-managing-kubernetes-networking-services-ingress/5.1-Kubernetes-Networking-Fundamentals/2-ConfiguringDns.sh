@@ -67,9 +67,9 @@ kubectl apply -f deployment.yaml
 #Get the pods and their IP addresses
 kubectl get pods -o wide
 
-#For one of the pods replace the dots in the IP addres with dashes for example10.244.222.214 becomes 10-244-222-214
+#For one of the pods replace the dots in the IP addres with dashes for example10.10.244.222.217 becomes 10-244-222-217
 #There's more on service A records in the next demo
-nslookup 10-244-222-214.default.pod.cluster.local  $SERVICEIP
+nslookup 10-244-222-217.default.pod.cluster.local  $SERVICEIP
 nslookup hello-world.default.svc.cluster.local $SERVICEIP
 
 #Clean up our resources
@@ -88,7 +88,7 @@ echo $DNSPODNODENAME
 #Let's log into THAT node running the dns pod and start a tcpdump to watch our dns queries in action.
 #Your interface (-i) name may be different
 ssh aen@$DNSPODNODENAME
-sudo tcpdump -i ens33 port 53 -n 
+sudo tcpdump -i enp0s3 port 53 -n 
 
 
 #In a second terminal, let's test our DNS configuration from a pod to make sure we're using the configured forwarder.
